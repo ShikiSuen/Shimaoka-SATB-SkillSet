@@ -58,7 +58,7 @@ Provide `SKILL.md` or `_SKILL-Amalgamated.md` as system prompt or context to an 
 
 ## English Notation System
 
-The English notation (`shimaoka-harmony-en/`) uses a compact prefix-degree-suffix scheme, mapped from the Chinese character notation (`壹`–`柒` → `Ⅰ`–`Ⅶ`):
+The English notation (`shimaoka-harmony-en/`) uses a compact prefix-degree-suffix scheme with Roman numeral degrees (`Ⅰ`–`Ⅶ`), isomorphic to the Chinese character notation (`壹`–`柒` in `shimaoka-harmony/`):
 
 ```
 [r | m | p | + | -]  Ⅰ–Ⅶ  [7 | 9]  [1 | 2 | 3 | 4]  [f | s]  [F | S]  [@target]  [/bass]
@@ -152,4 +152,4 @@ Proof-of-concept Swift code modeling the Shimaoka chord notation system as data 
 
 This repository is intended for educational reference. Harmonic theory content belongs to the academic public domain; the Swift code, repository structural arrangement, and plain-text notation syntax designs are provided under the MIT License.
 
-The tonal harmony notation system based on Chinese numeral characters, defined in `notation-syntax.md` (Chinese version), was designed by composer Sun Zhigui (孫志貴) for AI Agent comprehension. The English notation system (`notation-syntax.md` in `shimaoka-harmony-en/`) is an isomorphic redesign derived from it.
+The plain-text chord notation system used in this repository was designed by composer Shiki Suen (孫志貴). The original Chinese-character version (`notation-syntax.md` in `shimaoka-harmony/`) was created for AI Agent comprehension; the English Roman-numeral version (`notation-syntax.md` in `shimaoka-harmony-en/`) is an isomorphic redesign of it.
