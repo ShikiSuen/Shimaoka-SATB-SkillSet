@@ -85,6 +85,10 @@ $(AMALGAMATED_HANS): $(SKILL_HANS_SRC) $(shell ls $(REFS_HANS_DIR)/*.md | sort)
 	@echo "---" >> $@
 	@echo "" >> $@
 	@cat $(REFS_HANS_DIR)/examples.md >> $@
+	@echo "" >> $@
+	@echo "---" >> $@
+	@echo "" >> $@
+	@cat $(REFS_HANS_DIR)/melody-harmonization.md >> $@
 
 # --- Rebuild the English amalgamated markdown ---
 amalgamated-en: $(AMALGAMATED_EN)
@@ -155,6 +159,10 @@ $(AMALGAMATED_EN): $(SKILL_EN_SRC) $(shell ls $(REFS_EN_DIR)/*.md | sort)
 	@echo "---" >> $@
 	@echo "" >> $@
 	@cat $(REFS_EN_DIR)/examples.md >> $@
+	@echo "" >> $@
+	@echo "---" >> $@
+	@echo "" >> $@
+	@cat $(REFS_EN_DIR)/melody-harmonization.md >> $@
 
 # --- Clean generated files ---
 clean:

@@ -90,6 +90,8 @@ description: >
 
 以下步骤适用于任一给定课题（如指定的 Sop 旋律或 Bas 线条）。按此顺序执行可获得符合岛冈让体系规则的 SATB 四声体。
 
+> 若课题是**给定一条现成主旋律**（而非自由创作，例如从 MusicXML 提取的旋律声部），Step 1~3 需要反过来从旋律本身反推。请先执行 [references/melody-harmonization.md](references/melody-harmonization.md) 中的三个子步骤（乐句边界侦测、Sop 定型对齐、曳动单位链拼接），再以其输出结果代入下方 Step 1~3，然后继续 Step 4~8。
+
 ### Step 1: 调性确定与终止配置
 - 辨明课题的调性（长调/短调、调位）。
 - 确定乐句结构：在何处配置全终止（闭终止），何处配置半终止（开终止）。
@@ -184,3 +186,4 @@ description: >
 - **学习规则汇总**：见 [references/rules.md](references/rules.md)
 - **写作示例**：见 [references/examples.md](references/examples.md) （含完整四声部示例）
 - **纯文本记号语法**：见 [references/notation-syntax.md](references/notation-syntax.md)
+- **旋律配和声工作流程（给定主旋律时）**：见 [references/melody-harmonization.md](references/melody-harmonization.md)

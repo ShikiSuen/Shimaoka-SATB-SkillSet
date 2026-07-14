@@ -1,12 +1,14 @@
 # Shimaoka-SATB-SkillSet
 
+[Tap here to read the zh-Hans (简体中文) version](./README.md)
+
 Tokyo University of the Arts — **Shimaoka Yuzuru System** of Four-Part Harmony: a structured knowledge base for AI Agents.
 
 ## What Is This?
 
 This repository organizes the four-part harmony textbook of Shimaoka Yuzuru (島岡譲) into a structured, LLM-referenceable knowledge system. The core philosophy is **Swing Theory (yure theory)**: chords, like a pendulum, oscillate between stable positions (rest) and deviated positions (displacement), forming the essential motion of harmony.
 
-`SKILL.md` serves as the entry point, providing the complete terminology, an 8-step writing procedure, and a concept quick-reference. The 13 files under `references/` are subdivided by topic for on-demand retrieval by Agents. `_SKILL-Amalgamated.md` is the full merged file for one-shot loading.
+`SKILL.md` serves as the entry point, providing the complete terminology, an 8-step writing procedure, and a concept quick-reference. The 14 files under `references/` are subdivided by topic for on-demand retrieval by Agents. `_SKILL-Amalgamated.md` is the full merged file for one-shot loading.
 
 Provide this repository as context to any AI Agent that supports file references, and it can perform SATB part-writing, chord analysis, functional annotation, and other tasks following the Shimaoka system.
 
@@ -18,15 +20,20 @@ Shimaoka-SATB-SkillSet/
 ├── Makefile                                       # Build script
 ├── README.md                                      # Chinese README (this file's source of truth)
 ├── README_EN.md                                   # English README (this file)
-├── VALUEADD/Reviews/                              # LLM reviews & insights on the system
-│   ├── [Deepseek-v4]Review-on-Shimaoka-Harmonielehre.md
-│   ├── [Sonnet5]Review-on-Shimaoka-Harmonielehre.md
-│   ├── [Qwen]Review-on-Shimaoka-Harmonielehre.md
-│   └── ... (9 reviews total)
+├── VALUEADD/                                      # LLM reviews & dev memos on the system
+│   ├── zh-Hans/
+│   │   ├── Reviews/                                # Chinese reviews (9 total)
+│   │   │   ├── [Deepseek-v4]Review-on-Shimaoka-Harmonielehre.md
+│   │   │   ├── [Sonnet5]Review-on-Shimaoka-Harmonielehre.md
+│   │   │   ├── [Qwen]Review-on-Shimaoka-Harmonielehre.md
+│   │   │   └── ... (9 reviews total)
+│   │   └── DevMemo/                                # Development memos (not part of the knowledge base proper)
+│   └── en-US/
+│       └── Reviews/                                # English reviews (same 9, translated)
 ├── shimaoka-harmony/                              # Knowledge base — Simplified Chinese
 │   ├── SKILL.md                                   # Entry: core philosophy, terms, writing steps, concept quick-ref
-│   ├── _SKILL-Amalgamated.md                      # Full merge (14 .md files combined)
-│   └── references/                                # Topic-specific reference files (14)
+│   ├── _SKILL-Amalgamated.md                      # Full merge (15 .md files combined)
+│   └── references/                                # Topic-specific reference files (14 .md + 1 .swift)
 │       ├── ShimaokaChordStructExample.swift        # Swift type-system reference code
 │       ├── notation-syntax.md                     # Plain-text chord notation syntax
 │       ├── chord-system.md                        # Chord system & functional theory
@@ -40,11 +47,12 @@ Shimaoka-SATB-SkillSet/
 │       ├── sequence.md                            # Sequential progressions
 │       ├── nonchord.md                            # Incidental chords & sustained bass
 │       ├── rules.md                               # Compiled learning rules (A–G)
-│       └── examples.md                            # SATB writing examples
+│       ├── examples.md                            # SATB writing examples
+│       └── melody-harmonization.md                # Melody harmonization workflow (when a melody is given)
 └── shimaoka-harmony-en/                           # Knowledge base — English (mirror)
     ├── SKILL.md
     ├── _SKILL-Amalgamated.md
-    └── references/                                # (same 14 files, translated)
+    └── references/                                # (same 15 files, translated)
 ```
 
 ## How to Use
@@ -113,6 +121,7 @@ make clean
 | **Incidental Chords / Sustained Bass** | Tone collections formed incidentally through displacement; upper harmony over `Ⅰ`/`Ⅴ` pedal |
 | **Ornamentation** | Passing tones, neighbor figures, appoggiaturas, suspensions, escape tones, anticipations; ornament rules F1–F3, G1–G2 |
 | **Plain-Text Notation** | Degree symbols + prefixes (`r`/`m`/`p`/`+`) + suffixes (inversion / alteration / addition / markers) |
+| **Melody Harmonization** | Phrase-boundary detection, Sop-formula alignment, and cadential-chain assembly when a melody is given |
 
 ## File Descriptions
 
@@ -120,13 +129,13 @@ make clean
 Knowledge base entry point. Contains YAML frontmatter declaring the skill name and description; the body covers core philosophy, terminology, SATB fundamentals, the complete **8-step writing procedure**, and quick-reference tables for all key concepts. Agents should read this file first to establish a global understanding.
 
 ### `_SKILL-Amalgamated.md`
-The full merge of all 14 markdown files (SKILL.md + references/*.md). Use when you need to load the complete knowledge base in one shot (e.g., ample context window, or offline reference). The filename prefix `_` marks it as a derived file, generated by `make`.
+The full merge of all 15 markdown files (SKILL.md + references/*.md). Use when you need to load the complete knowledge base in one shot (e.g., ample context window, or offline reference). The filename prefix `_` marks it as a derived file, generated by `make`.
 
 ### `references/`
-13 topic-specific reference files, each focused on one subject. Agents retrieve individual files on demand — more token-efficient than loading the full amalgamation.
+14 topic-specific reference files, each focused on one subject. Agents retrieve individual files on demand — more token-efficient than loading the full amalgamation.
 
 ### `VALUEADD/`
-Independent reviews of the Shimaoka system by various LLMs. These reviews demonstrate different models' depth of understanding and teaching grip on the same system, serving as comparative reference. **Not part of the knowledge base proper.**
+Independent reviews of the Shimaoka system by various LLMs, plus development memos tracking the skillset's own design decisions. Split by locale (`zh-Hans/`, `en-US/`). The reviews demonstrate different models' depth of understanding and teaching grip on the same system, serving as comparative reference. **Not part of the knowledge base proper.**
 
 ### `references/ShimaokaChordStructExample.swift`
 Proof-of-concept Swift code modeling the Shimaoka chord notation system as data structures. Defines enums and structs for degrees, functions, chord types, bass positions, inversions, etc., demonstrating the notational system's modelability in a programming language.
@@ -143,6 +152,8 @@ Proof-of-concept Swift code modeling the Shimaoka chord notation system as data 
 6. **Inner Voice Fill (Alt + Ten)** — common-tone retention + obligatory motion
 7. **Rules Check** — verify against A–G clause by clause
 8. **Ornamentation** (optional) — passing tones, neighbor figures, appoggiaturas, suspensions
+
+> If the exercise is **an existing melody given in advance** (rather than free composition), Steps 1–3 must be inferred in reverse from the melody: first run the three sub-steps in [references/melody-harmonization.md](shimaoka-harmony/references/melody-harmonization.md) (phrase-boundary detection, Sop-formula alignment, cadential-chain assembly), then feed their output into Steps 1–3 above before continuing to Steps 4–8.
 
 ## Related Materials
 

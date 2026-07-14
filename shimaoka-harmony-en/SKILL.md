@@ -92,6 +92,8 @@ Top to bottom: Soprano (Sop) → Alto (Alt) → Tenor (Ten) → Bass (Bas)
 
 The following steps apply to any given exercise (such as a specified Sop melody or Bas line). Following this order produces an SATB texture conforming to the Shimaoka system.
 
+> If the exercise is **an existing melody given in advance** (rather than free composition — e.g., a soprano line extracted from MusicXML), Steps 1–3 must be inferred in reverse from the melody itself. First run the three sub-steps in [references/melody-harmonization.md](references/melody-harmonization.md) (phrase-boundary detection, Sop-formula alignment, cadential-chain assembly), then feed their output into Steps 1–3 below before continuing to Steps 4–8.
+
 ### Step 1: Determine Key and Cadence Layout
 - Identify the key of the exercise (major/minor, tonic pitch).
 - Determine phrase structure: where to place perfect cadences (closed) and half cadences (open).
@@ -186,3 +188,4 @@ A fixed harmonic pattern repeated at regular intervals ascending or descending.
 - **Compiled Learning Rules**: see [references/rules.md](references/rules.md)
 - **Writing Examples**: see [references/examples.md](references/examples.md) (includes complete 4-voice examples)
 - **Plain-Text Notation Syntax**: see [references/notation-syntax.md](references/notation-syntax.md)
+- **Melody Harmonization Workflow (when a melody is given)**: see [references/melody-harmonization.md](references/melody-harmonization.md)
